@@ -1,15 +1,5 @@
 # Exercise 01 -- Java Basics
 
-### SUBMISSION DEADLINE: **November 3, 2019 at 3 pm**    
-
-The first exercise encompasses several small tasks to get familiar
-with Java and programming basics in general. You can find the tasks in the following.
-As a template for your solution, the class  `Main.java` has been created in the `src` folder of this repository, 
-containing all methods with its corresponding signature.
-**Use this template for your solution. Otherwise, we will account for a malus (i.e., reducing your points even if the solution is correct)!**
-
-*RECOMMENDATION: Do not wait with working on the assignment until the deadline is approaching!*
-
 ## Tasks 1-01:  Armstrong Numbers
 
 <table border="0">
