@@ -1,0 +1,69 @@
+03-01: Sorting
+Part 1 :
+Insertion Sort : Insertion sort consumes one input element each iteration, and grows a sorted output list. At every iteration , insertion sort removes one part from the input data, finds the placement or location it belongs inside the sorted list and inserts it there. It continues repeating until no input elements remain.
+Sorting is usually done-in-place, iterates up the array and grows the sorted list behind it. At each array position,  it checks the value there against the largest value in the sorted list ( which happens to be next to it, within the previous array position checked.
+It leaves the element in place and moves to the next, if larger. And it its smaller, it finds the right position inside the sorted list, shifts all the larger values to create a space, and inserts into that correct position.
+After K iteration, the resulting array has the property where the first k + 1 entries are sorted (“+1” because the first entry is skipped). The first remaining entry of the input is removed in each iteration , and inserted into the result at the correct position.
+
+Selection Sort : The selection sort algorithms sort an array by continuously finding the minimum element ( ascending order) from unsorted part and putting it at the beginning.  The algorithm maintains sub arrays in a given array :
+a)	The subarray which is already sorted.
+b)	Sub arrays remained, which is unsorted.
+c)	The minimum element ( ascending order) from the unsorted array is picked and moved to the sorted sub array in every iteration of selection sort.
+
+Differences between insertion sort and selection sort :
+1.	The insertion sort usually performs the insert operation. At the same time, the selection sort carries out the selection and positioning of the required elements.
+2.	When selection sort is not a stable program, Insertion sort is said to be stable.
+3.	The elements are previously known in insertion sort algorithm. But the selection sort contains the location beforehand.
+4.	Insertion sort is a live sorting technique where the arriving elements are immediately sorted in the list but the selection sort cannot work well with immediately data.
+5.	The insertion sort has the 0(n) running time in the best case. The best case run time complexity of selection sort 0(n).
+
+
+Part 2:
+Among each of the algorithmic rule, the insertion  sort is quick, efficient , stable whereas selection sort works efficiently only when the small set of elements is concerned or the list is partly previously sorted. The quantity of comparisons created by selection sort is larger than the movements performed.In contrast, in insertion sort the number of times an element is moved or swapped is greater than the comparisons made.
+
+Part 3:
+Binary search is a search algorithm that finds the position of a target value  among a sorted array. Binary search compares the target value to the middle element of the array. If they’re not equal, the half during which the target cannot lie is eliminated and therefore the search continues on the other half, once more taking the middle element to compare to the target value and continue this till the target value is found. If the search ends with the remaining half being empty, the target isn’t within the array.
+Binary search runs in logarithmic time in the worst case, making comparisons, wherever  is that the range of elements in the array, that is huge O notation and is the logarithm. Binary search is quicker than linear search except for small arrays. However, the array must be sorted first to be able to apply binary search.There are specialized data structures designed for quick searching like hash tables, that can be searched more efficiently than binary search. Binary search can be used to solve a wider range of problems, like finding the next smallest or next largest element in the array relative to the target even though its absent from the array.
+
+03-02: Quicksort for Comparable-Objects
+Part 1:
+Quicksort is a divide and conquer algorithm. It happens to have two smaller sub arrays after dividing a large array. These are the low elements and the high elements. After then, Quicksort can recursively sort the sub arrays. The steps are :
+a)	Pick an element , which is called a pivot, from the array.
+b)	Partition : reorder the array so that all elements with value< the pivot come before the pivot, when all the elements with values larger than the pivot comes after it. Eual values can go either way. After the partition, the pivot is in its final position. This is called the partition operation.
+c)	Apply the above steps recursively to the sub array of elements with smaller values and separately to the sub array of elements with greater values.
+
+The base case of the recursion is arrays of size zero or one, which are in order by definition, so they never need to be sorted. The pivot selection and partitioning steps can be done in several different ways; the choice of specific implementation schemes greatly affects the algorithm’s performance example :
+{5,3,4,8,7,1,2} → {5,3,4,2,7,1,8} → {5,3,4,2,7,1,8} → {5,3,1,2,7,4,8} → {2,3,1,5,7,4,8} → {2,3,1,4,7,5,8} → {2,1,3,4,7,5,8} → {1,2,3,4,7,5,8} → {1,2,3,4,5,7,8}
+Part 2 :
+Worst-Case Analysis
+The most unbalanced partition occurs when one of the sub lists returned by the partitioning routine is of size n – 1, if the pivot happens to be the smallest or largest element in the list, or in some implementations (e.g., the Lomuto partition scheme as described above) when all the elements are equal.
+If this happens repeatedly in every partition, then each recursive call processes a list of size one less than the previous list. Consequently, we can make n − 1 nested calls before we reach a list of size 1. This means that the call tree is a linear chain of n − 1 nested calls. The ith call does O(n − i) work to do the partition, and  so in that case Quicksort takes O(n²) time.
+Best-case analysis
+In the most balanced case, we perform a partition each time, we divide the list into two nearly equal pieces. Each recursive call processes a list of half the size. Consequently, we can make only log2 n nested calls before we reach a list of size 1. This means that the depth of the call tree is log2 n. But no two calls at the same level of the call tree process the same part of the original list; thus, each level of calls needs only O(n) time all together (each call has some constant overhead, but since there are only O(n) calls at each level, this is subsumed in the O(n) factor). The result is that the algorithm uses only O(n log n) time.
+Average-case analysis
+To sort an array of n distinct elements, quicksort takes O(n log n) time in expectation, averaged over all n! permutations of n elements with equal probability.  We list here three common proofs to this claim providing different insights into quicksort's workings.
+Choosing a pivot:
+Options are:
+a)   left end or right end. This could give O(n^2) performance depending on the      input, so this is a bad choice but easiest to implement.
+b)	Best of 3. Left, middle and right. This gives substantially better performance than simply choosing an end in the worst case.
+c)	Random. Choosing a random pivot is fairly easy to implement and guarantees n log n performance so it is a very good choice
+
+
+
+03-03: MergeSort Using Comparator
+1.	Merge sort is a divide and conquer algorithm. The divide and conquer paradigm can be described in general terms as consisting of the following three steps:
+•	Divide: If the input size is smaller than a certain threshold, solve the problem directly using a straightforward method and return the solution so obtained. Otherwise, divide the input data into two or more disjoint subsets.
+•	Recur:  solve the sub problems recursively associated with the subsets.
+•	Conquer: take the solutions to the sub problems and merge them into a solution to the original problem.
+Given array {5,3,4,7,1,2} → {5,3,4} {7,1,2} → {5,3} {4}, {7,1} {2} → {5} {3} {4} {7} {1} {2} → {3,4,5},{1,2,7} → {1,2,3,4,5,7}.
+
+2.
+
+3. Yes it is, in fact Merge sort is one of the most powerful sorting algorithms. The best part about these algorithms is that they are able to sort a given data in O(nLogn) complexity as against O(n2) complexity of bubble sort and selection sort. Moreover, merge sort is of interest because it creates an excellent case study for one of the widely used techniques in Computer Science – divide and conquer.
+Merge sort forms a great case-study to understand data structures and algorithms. In order to develop strong foundations in computer science, you are advised to thoroughly understand various sorting algorithms which will help you pick up the basics.
+
+
+
+
+
+

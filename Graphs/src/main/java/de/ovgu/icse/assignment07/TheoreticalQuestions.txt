@@ -1,0 +1,22 @@
+07-01: Graph Representation
+*Please answer every theoretical question regarding this task here*
+
+class Graph {
+    int[] edgelist;
+    int[] neighborhood;
+    int[] nodeNhd;
+    int[][] adjMatrix;
+    int[][] adjList;
+}
+
+
+07-03: Breadth-First and Depth-First Search
+*Please answer every theoretical question regarding this task here*
+
+Breadth-First Search Traversal:
+
+81235674
+
+Depth-First Search Traversal:
+
+23754618
